@@ -4,8 +4,6 @@
     return a+b+c;
 } */
 
-
-
 sum = (a) => {
     return (b) => {
         return (c) => {
@@ -15,3 +13,18 @@ sum = (a) => {
 }
 
 console.log(sum(1)(2)(3));
+
+
+const log = time => type => msg => `At: ${time},  Severity: ${type} => ${msg}`;
+
+// Above function can be written as 
+
+/* function log(time) {
+    return function(type) {
+        return function(msg) {
+            return `At: ${time},  Severity: ${type} => ${msg}`;
+        }
+    }
+} */
+
+console.log(log(new Date())('Error')('Unknown error'))
