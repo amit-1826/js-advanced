@@ -1,6 +1,9 @@
-function heavy(x) {
-    console.log('heavy: ', x);
-    return 'heavy: ' + x;
+const object1 = {
+    name: 'Amit',
+    heavy: function heavy(x) {
+        console.log('heavy: ', x, this.name);
+        return 'heavy: ' + x;
+    }
 }
 
 function memoizer(Fx) {
@@ -8,11 +11,10 @@ function memoizer(Fx) {
     const map = new Map();
 
     return function(x) {
-
         if (map.has(x)) {
             return map.get(x)
         } else {
-            const result = Fx(x);
+            const result = Fx.call(this,x);
             map.set(x, result);
             return result;
         }
@@ -20,9 +22,7 @@ function memoizer(Fx) {
     }
 }
 
-const memoized = memoizer(heavy);
+object1.memoized = memoizer(object1.heavy);
 
-memoized(4);
-memoized(3);
-memoized(4);
+object1.memoized(4);
 
