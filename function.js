@@ -14,9 +14,9 @@ a();
 b();
 console.log(x);
 
-console.log(g);
-let g = 1;
 
+let g = 1;
+console.log(g);
 function a() {
     var x = 10;
     console.log(x);
@@ -26,3 +26,23 @@ function b() {
     var x = 100;
     console.log(x);
 }
+
+
+String.prototype.reverse = function() {
+    return this.split('').reverse().join('');
+}
+
+console.log('abcde'.reverse());
+
+
+function test() {
+    console.log(a);
+    console.log(foo());
+
+    var a = 1;
+    function foo() {
+        return 2;
+    }
+}
+
+test();
