@@ -22,3 +22,18 @@ function addString(txtId, pId) {
 }
 
 const addString1 = addString('txt1', 'p1');
+
+
+/////////////////////////////////////////////// 
+
+function outer1() {
+    function inner1() {
+        console.log('inner function ', a);
+    }
+    let a = 10;
+    return inner1;
+}
+
+const close = outer1();
+
+close();
