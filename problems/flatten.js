@@ -14,4 +14,9 @@ function flatten(array) {
   return results;
 }
 
-console.log(flatten([1, 2, 3, [5, 6, [8, 9]], 23]));
+// Simpler version
+/* function flat(arr) {
+  return arr.toString().split(",").map(Number);
+} */
+
+console.log(flatten([1, 2, 3, [5, 6, [8, 9]], 23])); //  [1, 2, 3, 5, 6, 8, 9, 23]
